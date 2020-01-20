@@ -11,6 +11,8 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :document_type
       t.string :document_number
 
+      t.references :merchant
+
       t.timestamps
     end
   end
