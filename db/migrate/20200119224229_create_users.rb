@@ -10,6 +10,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :phone
       t.string :document_type
       t.string :document_number
+      t.string :role
 
       t.references :merchant
 

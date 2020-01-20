@@ -26,7 +26,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 #### Agregado por nosotros ####
 # Manejo de roles
-gem 'rolify' 
+#gem 'rolify'
 # Autenticacion
 gem 'knock'
 # Hash de claves
@@ -39,6 +39,8 @@ gem 'jwt'
 gem 'rack-cors', require: 'rack/cors'
 # Autorizacion
 gem 'simple_command'
+# Autorizacion segun roles
+gem 'cancancan'
 ### ##################### ###
 
 group :development, :test do

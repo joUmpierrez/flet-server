@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_request, only: %i[login register addRole]
+  attr_reader :current_user
+
+  # Autenticacion, permite usar la API si hay un token
+  skip_before_action :authenticate_request, only: %i[login register]
+  # Autenticacion, permite usar la API si el usuario es de tipo administrador
+  load_and_authorize_resource :except => [:login, :register]
 
   # Metodo para registrar un usuario
   def register
