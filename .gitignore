@@ -8,7 +8,7 @@
 /.bundle
 
 # Ignore for cashing Heroku
-/lib/json_web_token.rb
+#/lib/json_web_token.rb
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -22,6 +22,6 @@
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
-# /config/master.key
+ /config/master.key
 
 
