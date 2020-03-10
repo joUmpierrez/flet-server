@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  attr_reader :current_user
+  # attr_reader :current_user
 
   # Autenticacion, permite usar la API si hay un token
   skip_before_action :authenticate_request, only: %i[login register]
@@ -32,8 +32,6 @@ class UsersController < ApplicationController
     command = AuthenticateUser.call(email, password)
 
     if command.success?
-      current_user = User.find_by_email(email)
-
       render json: {
           access_token: command.result,
           message: 'Login Successful',
