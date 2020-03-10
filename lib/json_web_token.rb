@@ -5,12 +5,12 @@ class JsonWebToken
       payload[:exp] = exp.to_i
 
       # Codificado
-      JWT.encode(payload, ENV['SECRET_KEY_BASE'])
+      JWT.encode(payload, Rails.application.secrets.secret_key_base)
     end
 
     def decode(token)
       # Decodificado
-      body = JWT.decode(token, ENV['SECRET_KEY_BASE'])[0]
+      body = JWT.decode(token, Rails.application.secrets.secret_key_base)[0]
       HashWithIndifferentAccess.new body
 
         # Errores personalizados
