@@ -81,7 +81,11 @@ class OrdersStaticsController < ApplicationController
   end
 
   def ordersPerHour
-    @ordersHour = ordersPerHourGeneric.sort_by { |hsh| hsh[:orders]  * -1 }
+    if params[:sort] == "time"
+      @ordersHour = ordersPerHourGeneric.sort_by { |hsh| hsh[:hour] }
+    elsif params[:sort] == "orders"
+      @ordersHour = ordersPerHourGeneric.sort_by { |hsh| hsh[:orders]  * -1 }
+    end
 
     render json: @ordersHour
   end
