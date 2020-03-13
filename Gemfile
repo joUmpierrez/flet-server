@@ -43,6 +43,8 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'simple_command'
 # Autorizacion segun roles
 gem 'cancancan'
+# Pusher para localizacion en tiempo real
+gem 'pusher'
 ### ##################### ###
 
 group :development, :test do
