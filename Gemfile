@@ -44,7 +44,7 @@ gem 'simple_command'
 # Autorizacion segun roles
 gem 'cancancan'
 # Pusher para localizacion en tiempo real
-gem 'pusher'
+gem 'pusherø'
 ### ##################### ###
 
 group :development, :test do

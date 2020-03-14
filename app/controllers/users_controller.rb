@@ -19,6 +19,9 @@ class UsersController < ApplicationController
 
   def login
     authenticate params[:email], params[:password]
+
+    puts params[:lat]
+    puts params[:long]
   end
 
   def test

@@ -53,6 +53,15 @@ class OrdersStaticsController < ApplicationController
     return @json_OrdersHour
   end
 
+  def getLocationsForAPI
+    urlLocationsForAPI = 'https://server-mockup.herokuapp.com/locationsForAPI'
+    uriLocationsForAPI = URI(urlLocationsForAPI)
+    responseLocationsForAPI = Net::HTTP.get(uriLocationsForAPI)
+    @json_LocationsForAPI = JSON.parse(responseLocationsForAPI)
+
+    return @json_LocationsForAPI
+  end
+
   def ordersPerHourGeneric
     @orders = getOrdersHour
     @initTime = Time.parse("00:00:00") # La primera hora del dia es declarada para crear un arreglo ordenado
@@ -99,6 +108,14 @@ class OrdersStaticsController < ApplicationController
   end
 
   def heatMapDelivery
+    @order = getLocationsForAPI
+    @coordinates = []
+
+    @order.each do |ord|
+      @coordinates.push(ord["drop_off"]["coordinates"])
+    end
+
+    render json: @coordinates
 
   end
 end
